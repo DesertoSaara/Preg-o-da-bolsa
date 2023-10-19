@@ -1,0 +1,19 @@
+public class Acao {
+    private String ticker;
+    private Double cotacao;
+    private int quantidade;
+
+    public Acao(String ticker, Double cotacao, int quantidade) {
+        this.ticker = ticker;
+        this.cotacao = cotacao;
+        this.quantidade = quantidade;
+    }
+
+    @Override
+    public String toString() {
+        return "ticker: " + ticker +
+                ", cotação: " + cotacao +
+                ", quantidade: " + quantidade + "\n";
+    }
+}
+

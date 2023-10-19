@@ -1,0 +1,43 @@
+public class Main {
+    public static void main(String[] args) {
+        Investidor investidor1 = new Investidor("Sarah");
+        //System.out.println(investidor1.getAcoes());
+        Acao acao1 = new Acao("003H11", 12.50, 5);
+        Acao acao2 = new Acao("0FEA11", 18.50, 6);
+        Acao acao3 = new Acao("A1AP34", 25.60, 2);
+        //System.out.println(acao1.toString());
+
+        /*investidor1.getAcoes().adicionar(acao1);
+        investidor1.getAcoes().adicionar(acao2);
+        investidor1.getAcoes().adicionar(acao3);
+        System.out.println(investidor1.getAcoes());*/
+
+        Lista<Acao> acoes = new Lista<>();
+        acoes.adiciona(acao1);
+
+        //System.out.println("Tamanho = " + acoes.getTamanho());
+        //System.out.println(lista);
+
+        //acoes.adiciona(acao2);
+        //System.out.println(lista);
+
+        //acoes.adiciona(acao3);
+
+        //System.out.println(acoes);
+        //acoes.limpa();
+        //System.out.println(acoes);
+
+        //System.out.println(acoes);
+        acoes.adiciona(acao3);
+        acoes.adiciona(acao2);
+       // System.out.println(acoes);
+        //System.out.println("Tamanho = "+ acoes.getTamanho());
+
+        //acoes.toString();
+        //acoes.limpar();
+        System.out.println(acoes);
+        acoes.removerAcao(acao3);
+        System.out.println(acoes);
+    }
+
+}

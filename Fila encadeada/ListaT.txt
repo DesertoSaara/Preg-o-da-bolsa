@@ -1,0 +1,77 @@
+//LISTA ENCADEADA
+
+public class Lista<T> {
+    private No<T> inicio; //referencia //controle dos valores atribuidos é apenas internamente
+
+    private No<T> ultimo; //referencia
+    private int tamanho;
+
+
+    //ADICIONA AÇÕES NO FINAL DA LISTA
+    public void adiciona(Acao acao){
+         No<T> celula = new No<T> (acao);
+
+         if(this.tamanho == 0) {
+             this.inicio = celula;
+         } else {
+            this.ultimo.setProximo(celula);
+         }
+        this.ultimo = celula;
+        this.tamanho++;
+    }
+
+    //MOSTRA O TAMANHO DA LISTA
+    public int getTamanho(){
+        return this.tamanho;
+    }
+
+    //REMOVE UMA ACÃO ESPECIFICA
+    public void removerAcao(Acao acao) {
+        No<T> atual = this.inicio;
+        No<T> anterior = null;
+        for(int i = 0; i < this.getTamanho(); i++){
+            if(atual.getAcao() == acao){
+                anterior.setProximo(atual.getProximo());
+                atual = null;
+                break;
+            }
+            anterior = atual;
+            atual = atual.getProximo();
+        }
+    }
+
+
+    //REMOVE TODAS AÇÕES DA LISTA
+    public void limpar(){
+
+        for(No<T> atual = this.inicio; atual!=null;){
+            No<T> proximo = atual.getProximo();
+            atual.setAcao(null);
+            atual.setAcao(null);
+            atual = proximo;
+        }
+
+        this.inicio = null;
+        this.ultimo = null;
+        this.tamanho = 0;
+    }
+
+
+    //PERCORRE A LISTA ENCADEADA
+    @Override
+    public String toString() {
+
+        if (this.tamanho == 0) {
+            return "Sem ações";
+        }
+
+        No<T> atual = this.inicio;
+
+        for(int i = 0; i < this.tamanho - 1; i++){
+            System.out.print(atual.getAcao());
+            atual = atual.getProximo();
+        }
+        System.out.println(atual.getAcao());
+        return "";
+    }
+}
